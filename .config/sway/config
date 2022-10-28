@@ -1,0 +1,55 @@
+# Default config for sway
+#
+# Copy this to ~/.config/sway/config and edit it to your liking.
+#
+# Read `man 5 sway` for a complete reference.
+
+# styles - set the folder for your theme definition file
+set $theme /usr/share/sway/themes/matcha-green
+
+# theme variables
+include $theme/definitions
+
+# global variables
+include /etc/sway/definitions
+
+# user variables
+include $HOME/.config/sway/definitions.d/*.conf
+
+include /etc/sway/inputs/*
+include /etc/sway/outputs/*
+
+# enable modes
+include /etc/sway/modes/*
+
+# only enable this if every app you use is compatible with wayland
+# xwayland disable
+
+# include additional configs e.g. to autostart applications
+include /etc/sway/config.d/*
+
+# user config
+include $HOME/.config/sway/config.d/*.conf
+
+input * {
+    xkb_layout "pl"
+}
+
+output * background /home/lzieniew/Pictures/abstract1.png stretch
+
+workspace 1 output HDMI-A-1
+workspace 3 output eDP-1
+output HDMI-A-1 pos 0 0 transform 270
+output eDP-1 pos 1920 0 scale 1.3
+
+# for three displays use wdisplays and these workspaces:
+#workspace 1 output HDMI-A-1
+#workspace 2 output DP-1
+#workspace 3 output eDP-1
+#output eDP-1 pos 0 0
+
+# one external monitor
+#output eDP-1 disable
+
+exec wal -R
+exec xcalib ~/.colorprofiles/profile.icc

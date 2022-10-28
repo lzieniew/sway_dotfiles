@@ -1,0 +1,6 @@
+[Default Applications]
+x-scheme-handler/msteams=teams.desktop
+
+[Added Associations]
+video/mp4=vlc.desktop;
+text/x-gcode=code-oss.desktop;
